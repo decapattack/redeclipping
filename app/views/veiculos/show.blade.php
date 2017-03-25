@@ -1,0 +1,1 @@
+E:\xampp\htdocs\redeclipping\app/views/veiculos/show.blade.php
