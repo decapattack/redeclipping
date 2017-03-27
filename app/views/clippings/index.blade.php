@@ -48,22 +48,34 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($clippings as $clippings)
+                    @foreach ($clippings as $clipping)
                         <tr>
                             <th scope="row">{{ $clipping->id_clipping }}</th>
-                            <td>{{ $clipping->empresa }}</td>
-                            <td>{{ $cliente->contato }}</td>
-                            <td>{{ $cliente->email }}</td>
-                            <td>{{ $cliente->tel_contato }}</td>
-                            <td><a class="btn btn-default btn-sm" href="clientes/{{$cliente->id_cliente}}">
+                            <td>=></td>
+                            <td>{{ $clipping->titulo }}</td>
+                            <td>{{ $clipping->data_v }}</td>
+                            <td>{{ $clipping->data_p }}</td>
+                            <td>{{ $clipping->peso_assunto }}</td>
+                            <td>{{ $clipping->disponibilidade }}</td>
+                            <td><?php
+                                    echo DB::table('clientes')->where('id_cliente',$clipping->id_cliente)->first()->empresa;
+                                ?>
+                            </td>
+                            <td><?php
+                                    echo DB::table('usuarios')->where('id_usuario',$clipping->usuario)->first()->nome;
+                                ?>
+                            </td>
+                            <td>??</td>
+                            <td><a class="btn btn-default btn-sm" href="clippings/{{$clipping->id_clipping}}">
                                 <span class="icon-info-sign"></span>
                             </a></td>
+                            <td>V</td>
                         </tr>
                     @endforeach
                 </tbody>
 
             </table>
-            {{ $clientes->links() }}
+            {{ $clippings->links() }}
         </div>
     </div>
 </div>

@@ -14,7 +14,7 @@ class ClippingsController extends \BaseController {
         $capas = CapasCliente::select('id_capacliente', 'nome')->where('visibilidade', 1)->orderBy('nome', 'ASC')->lists('nome', 'id_capacliente');
         $assuntos = Assunto::lists('nome', 'id_assunto');
         $clippings = DB::table('clipping')->paginate(20);
-        return View::make('clippings.index', compact('clippings','clientes','capas','assuntos'));
+        return View::make('clippings.index', compact('clientes','capas','assuntos'))->with(['clippings' => $clippings]);
     }
 
     /**

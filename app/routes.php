@@ -16,8 +16,6 @@
 Route::group(['before' => 'auth'], function()
 {
     Route::resource('clientes','ClientesController');
-
-
 });
 Route::resource('clippings','ClippingsController');
 Route::resource('sessions','SessionsController');

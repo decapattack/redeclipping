@@ -42,7 +42,11 @@ class Clipping extends \Eloquent {
     ];
     public $timestamps = false;
 
-    public function clientes(){
-        return $this->belongsTo("Cliente");
+    public function cliente(){
+        return $this->belongsTo("Cliente", 'id_cliente');
+    }
+
+    public function usuario(){
+        return $this->belongsTo("User", 'usuario');
     }
 }
